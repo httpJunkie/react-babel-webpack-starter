@@ -33,7 +33,13 @@ Badge.propTypes = {
   img: PropTypes.object.isRequired,
   name: PropTypes.string.isRequired,
   username: PropTypes.string.isRequired,
-  clearance: PropTypes.arrayOf(PropTypes.number)
+  clearance: PropTypes.arrayOf(PropTypes.number),
+  drivingInfo: PropTypes.shape({
+    license: PropTypes.bool.isRequired,
+    licenseNumber: PropTypes.number.isRequired,
+    state: PropTypes.string.isRequired,
+    valid: PropTypes.bool.isRequired,
+  })
 }
 
 ReactDOM.render(
@@ -42,6 +48,12 @@ ReactDOM.render(
     username="httpJunkie"
     img={{ profileImage: "https://github.com/httpJunkie.png" }}
     clearance={[1, 2, 3, 5, 8, 13, 21, 1]}
+    drivingInfo={{
+      license: true,
+      licenseNumber: 904671856929234137,
+      state: 'CA',
+      valid: false
+    }}
   />,
   document.getElementById("app")
 )
