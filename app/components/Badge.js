@@ -1,27 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-class Badge extends React.Component {
-  render() {
-    return (
-      <>
-        <img
-          src={this.props.img.profileImage}
-          alt="Avatar"
-          style={{ width: 100, height: 100 }}
-        />
-        <h2>Name: {this.props.name}</h2>
-        <h3>Username: {this.props.username}</h3>
-        <h3>Clearance Levels:</h3>
-        <p>{this.props.clearance.map(
-          (item, idx) => {
-            let useKeyAlt = `${item}-${idx}`;
-            return <span key={useKeyAlt} alt={useKeyAlt} className="clearance-level">{item}</span>
-          }
-        )}</p>
-      </>
-    )
-  }
+export default (props) => {
+  return (
+    <>
+      <img
+        src={props.img.profileImage}
+        alt="Avatar"
+        style={{ width: 100, height: 100 }}
+      />
+      <h2>Name: {props.name}</h2>
+      <h3>Username: {props.username}</h3>
+      <h3>Clearance Levels:</h3>
+      <p>{props.clearance.map(
+        (item, idx) => {
+          let useKeyAlt = `${item}-${idx}`;
+          return <span key={useKeyAlt} alt={useKeyAlt} className="clearance-level">{item}</span>
+        }
+      )}</p>
+    </>
+  )
 }
 
 Badge.propTypes = {
