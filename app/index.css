@@ -21,10 +21,35 @@ button:hover {
   color: rgba(8, 44, 54, 0.616);
 }
 
+ul {
+  padding: 0;
+}
+li {
+  list-style-type: none;
+}
+
 .Todos {
   padding: 1em;
 }
 
 .clearance-level {
   margin-right: 0.5em;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.languages {
+  display: flex;
+  justify-content: center;
+}
+
+.languages li {
+  margin: 10px;
+  font-weight: bold;
+  font-size: 1.25em;
+  cursor: pointer;
+  cursor: hand;
 }

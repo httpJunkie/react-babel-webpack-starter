@@ -1,9 +1,12 @@
 import React from 'react';
+import Popular from './Popular';
 
 class App extends React.Component {
   render() {
     return (
-      <div>Hello Mars</div>
+      <div className="container">
+        <Popular />
+      </div>
     )
   }
 }
