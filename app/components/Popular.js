@@ -6,12 +6,8 @@ class Popular extends React.Component {
     this.state = {
       selectedLanguage: 'All'
     }
-    // this bind property will take in a context and return 
-    // a brand new func with this bound to whatever we passed in (updateLanguage)
-    // if we switch to hooks, we won't have to use this
     this.updateLanguage = this.updateLanguage.bind(this);
   }
-
   updateLanguage(lang) {
     this.setState(function () {
       return {
@@ -19,29 +15,50 @@ class Popular extends React.Component {
       }
     });
   }
-
   render() {
-    var languages = ["All", "JavaScript", "C#", "Java", "Python", "CSS"];
     return (
-      <ul className="languages">
-        {
-          languages.map(function(lang) {
-            return (
-              <li
-                style={
-                  lang === this.state.selectedLanguage
-                    ? { color: 'rgb(151, 243, 255, 0.5)' }
-                    : null
-                }
-                onClick={this.updateLanguage.bind(null, lang)}
-                key={lang}
-              >{lang}</li>
-            )
-          }, this)
-        }
-      </ul>
+      <>
+        <SelectLanguage
+          selectedLanguage={this.state.selectedLanguage}
+          onSelect={this.updateLanguage}
+        />
+      </>
     )
   }
 }
 
 export default Popular;
+
+/* SelectLanguage Component */
+import PropTypes from 'prop-types';
+
+function SelectLanguage(props) {
+  var languages = ["All", "JavaScript", "C#", "Java", "Python", "CSS"];
+  return (
+    <div className="container">
+      <div className="container-item">
+        <ul className="languages">
+          {languages.map(function (lang) {
+            return (
+              <li
+                style={
+                  lang === props.selectedLanguage
+                    ? { color: 'rgb(151, 243, 255, 0.5)' }
+                    : null
+                }
+                onClick={props.onSelect.bind(null, lang)}
+                key={lang}>
+                {lang}
+              </li>
+            )
+          })}
+        </ul>
+      </div>
+    </div>
+  )
+}
+
+SelectLanguage.propTypes = {
+  selectedLanguage: PropTypes.string.isRequired,
+  onSelect: PropTypes.func.isRequired
+}

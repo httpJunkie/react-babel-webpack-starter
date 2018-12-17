@@ -7,20 +7,6 @@ h1, p {
   font-family: Lato;
 }
 
-button {
-  cursor: pointer;
-  margin-right: 0.25em;
-  padding: 0.5em;
-  border: none;
-  border-radius: 4px;
-  background-color: rgba(151, 243, 255, 0.9);
-  color: rgb(8, 44, 54);
-}
-button:hover {
-  background-color: rgba(151, 243, 255, 0.7);
-  color: rgba(8, 44, 54, 0.616);
-}
-
 ul {
   padding: 0;
 }
@@ -36,11 +22,6 @@ li {
   margin-right: 0.5em;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
 .languages {
   display: flex;
   justify-content: center;
@@ -52,4 +33,13 @@ li {
   font-size: 1.25em;
   cursor: pointer;
   cursor: hand;
+}
+
+.container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.container-item {
+  flex-grow: 1;
 }
